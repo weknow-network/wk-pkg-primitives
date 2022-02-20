@@ -1,5 +1,5 @@
 {
-  "name": "@weknow-network/primitives",
+  "name": "@weknow-network/wk-pkg-primitives",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/weknow-network"
   },

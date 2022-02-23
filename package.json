@@ -1,11 +1,24 @@
 {
-  "name": "@weknow-network/wk-pkg-primitives",
+  "name": "@weknow.network/wk-pkg-primitives",
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "private": false,
+  "author": "WeKnow",
+  "description": "A collection of utility functions and types.",
+  "homepage": "https://github.com/weknow-network/wk-pkg-primitives",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/weknow-network/wk-pkg-primitives"
+  },
+  "bugs": {
+    "url": "https://github.com/weknow-network/wk-pkg-primitives/issues"
+  },
+  "engines": {
+    "yarn": ">=1.22.0"
+  },
   "scripts": {
     "build": "rollup -c"
   },

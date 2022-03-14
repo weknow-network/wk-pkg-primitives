@@ -21,6 +21,8 @@ on:
 jobs:
   version_increment:
     uses: weknow-network/weknow-workflows/.github/workflows/js-increment-version.yml@main
+    with:
+      path: ./package.json
     
   build:
     needs: version_increment

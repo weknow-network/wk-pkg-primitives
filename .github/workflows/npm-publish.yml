@@ -40,35 +40,7 @@ jobs:
       - name: Run build
         run: |
           yarn install
-          yarn build
-          
-      - name: NPM Release Pack
-        # You may pin to the exact commit or the version.
-        # uses: LumaKernel/npm-release-pack-action@a409510f3c988cfa63ecc61995dc0de7d57a3642
-        uses: LumaKernel/npm-release-pack-action@v1.0.1
-        with:
-          # GitHub token or PAT token
-          github_token: ${{ github.token }}
-          # Repository name to push. Default or empty value represents current github repository (${GITHUB_REPOSITORY})
-          # repository: # optional, default is 
-          # Directory to publish.
-          working_directory: ./dist
-#           # Command to publish.
-#           publish_command: 
-#           # Version tag pattern with %s. Multiple %s is allowed. Cannot use percent charcter.
-#           version_tag_pattern: # optional, default is v%s
-#           # GitHub release name pattern with %s. Multiple %s is allowed. Cannot use percent charcter.
-#           release_name_pattern: # optional, default is v%s
-#           # GitHub release body.
-#           release_body: # optional
-#           # GitHub release draft.
-#           draft: # optional
-#           # GitHub release prerelease.
-#           prerelease: # optional
-#           # GitHub release generate_release_notes.
-#           generate_release_notes: # optional
-#           # GitHub release discussion_category_name.
-#           discussion_category_name: # optional
+          yarn build           
             
       - run: npm publish
         env:

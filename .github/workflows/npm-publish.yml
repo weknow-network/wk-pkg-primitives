@@ -20,7 +20,7 @@ on:
         default: 'warning'  
 jobs:
   version_increment:
-    uses: weknow-network/weknow-workflows/.github/workflows/js-increment-version.yml@main
+    uses: weknow-network/weknow-workflows/.github/workflows/js-increment-version.yml@release/2022-01-09
     with:
       path: ./package.json
     

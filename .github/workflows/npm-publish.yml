@@ -19,6 +19,11 @@ on:
         required: false
         default: 'warning'  
 jobs:
+  version_increment:
+    name: Increment Version
+    uses: weknow-network/weknow-workflows/.github/workflows/js-increment-version.yml@release/2022-01-09
+    with:
+      path: ${{ inputs.path }}
   ci:
     uses: weknow-network/weknow-workflows/.github/workflows/js-public-lib-ci.yml@release/2022-01-09
     with:

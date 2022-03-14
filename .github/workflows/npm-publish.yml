@@ -21,11 +21,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [12]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: ${{ matrix.node }}
+      - name: Run lint
+        run: |
+          yarn lint
+          yarn lint
+          yarn build
       - run: npm ci
       - run: npm test
 
@@ -37,15 +45,6 @@ jobs:
         node: [12]
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }}
-      - name: Run lint
-        run: |
-          yarn lint
-          yarn lint
-          yarn build
           
       
 #       - uses: actions/setup-node@v2

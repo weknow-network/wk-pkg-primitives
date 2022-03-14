@@ -31,7 +31,7 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Run lint
         run: |
-          yarn lint
+          yarn initialize
           yarn build
       - run: npm ci
       - run: npm test

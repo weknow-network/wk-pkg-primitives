@@ -19,7 +19,11 @@ on:
         required: false
         default: 'warning'  
 jobs:
+  version_increment:
+    uses: weknow-network/weknow-workflows/.github/workflows/js-increment-version.yml@main
+    
   build:
+    needs: version_increment
     runs-on: ubuntu-latest
     strategy:
       matrix:

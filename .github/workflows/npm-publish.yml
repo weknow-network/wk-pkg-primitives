@@ -39,7 +39,7 @@ jobs:
           
       - name: Run build
         run: |
-          yarn initialize
+          yarn install
           yarn build
       - run: npm ci
       - run: npm test

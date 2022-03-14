@@ -32,7 +32,6 @@ jobs:
       - name: Run lint
         run: |
           yarn lint
-          yarn lint
           yarn build
       - run: npm ci
       - run: npm test

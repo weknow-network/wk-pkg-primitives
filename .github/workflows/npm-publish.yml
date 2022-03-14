@@ -40,9 +40,10 @@ jobs:
       - name: Run build
         run: |
           yarn install
-          yarn build           
-            
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          yarn build      
+          
+      - name: Publish to NPM
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
   

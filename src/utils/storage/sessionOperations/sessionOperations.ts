@@ -29,6 +29,19 @@ export const sessionOperations = (): IStorageOperations => {
     return true;
   };
 
+  const getObject = <T extends unknown>(key: string): T | undefined => {
+    const raw = getItem(key);
+    if(raw == null) return undefined;
+
+    return JSON.parse(raw) as T;
+  };
+
+  const setObject = <T extends unknown>(key: string, value: T): boolean => {
+    const raw = JSON.stringify(value);
+    const res = setItem(key, raw);
+    return res;
+  };
+
   const removeItem = (key: string): boolean => {
     const isServer = typeof window === "undefined";
     if (isServer) return false;
@@ -41,6 +54,8 @@ export const sessionOperations = (): IStorageOperations => {
     getId,
     getItem,
     setItem,
+    getObject,
+    setObject,
     removeItem,
   };
 };

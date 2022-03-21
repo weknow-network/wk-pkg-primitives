@@ -11,6 +11,15 @@ export interface IStorageOperations {
    */
   setItem: (key: string, value: string) => boolean;
   /**
+   * get session's key as object (deserialized)
+   */
+  getObject: <T extends unknown>(key: string) => T | undefined;
+  /**
+   * Set session key with un object (serialize)
+   * returns false when server side (not available)
+   */
+  setObject: <T extends unknown>(key: string, value: T) => boolean;
+  /**
    * remove session key
    * returns false when server side (not available)
    */

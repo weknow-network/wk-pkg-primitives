@@ -1,6 +1,20 @@
 import { IStorageOperations } from "../contracts/IStorageOperations";
+import { v4 as uuidv4 } from "uuid";
 
 export const appStorageOperations = (): IStorageOperations => {
+  const getId = () => {
+    const isServer = typeof window === "undefined";
+    if (isServer) return undefined;
+
+    const key = "__local_storage_id__";
+    let res = localStorage.getItem(key);
+    if (res == null) {
+      res = uuidv4() as string;
+      localStorage.setItem(key, res);
+    }
+    return res;
+  };
+
   const getItem = (key: string): string | undefined => {
     const isServer = typeof window === "undefined";
     const res = isServer ? undefined : localStorage.getItem(key);
@@ -24,6 +38,7 @@ export const appStorageOperations = (): IStorageOperations => {
   };
 
   return {
+    getId,
     getItem,
     setItem,
     removeItem,

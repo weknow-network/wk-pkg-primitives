@@ -1,6 +1,20 @@
 import { IStorageOperations } from "../contracts/IStorageOperations";
+import { v4 as uuidv4 } from "uuid";
 
 export const sessionOperations = (): IStorageOperations => {
+  const getId = () => {
+    const isServer = typeof window === "undefined";
+    if (isServer) return undefined;
+
+    const key = "__session_id__";
+    let res = sessionStorage.getItem(key);
+    if (res == null) {
+      res = uuidv4() as string;
+      sessionStorage.setItem(key, res);
+    }
+    return res;
+  };
+
   const getItem = (key: string): string | undefined => {
     const isServer = typeof window === "undefined";
     const res = isServer ? undefined : sessionStorage.getItem(key);
@@ -24,6 +38,7 @@ export const sessionOperations = (): IStorageOperations => {
   };
 
   return {
+    getId,
     getItem,
     setItem,
     removeItem,

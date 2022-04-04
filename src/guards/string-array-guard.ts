@@ -8,6 +8,7 @@ import { guardString } from "./string-guard";
  * @param candidate
  * @return true is candidate is a string false otherwise
  * @example if(guardString(prm))
+ * @remark Test the first index of the array, i.e. ['A', 1] will return positive result
  */
 export const guardStringArray = (
   candidate: any

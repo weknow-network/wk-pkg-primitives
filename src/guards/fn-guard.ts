@@ -7,7 +7,7 @@
  * @return true is candidate is a function false otherwise
  * @example if(guardFn(prm))
  */
-export const guardFn = <T extends (agrs: any) => void | never>(
+export const guardFn = <T extends (_agrs: never) => (void | never)>(
   candidate: any
 ): candidate is T => {
   return typeof candidate === 'function';

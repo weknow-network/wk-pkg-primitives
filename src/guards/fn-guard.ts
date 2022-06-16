@@ -2,12 +2,12 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 
 /**
- * guard number
+ * guard function
  * @param candidate
- * @return true is candidate is a number false otherwise
- * @example if(guardNumber(prm))
+ * @return true is candidate is a function false otherwise
+ * @example if(guardFn(prm))
  */
-export const guardFn = <T extends (agrs: never) => void | never>(
+export const guardFn = <T extends (agrs: any) => void | never>(
   candidate: any
 ): candidate is T => {
   return typeof candidate === 'function';

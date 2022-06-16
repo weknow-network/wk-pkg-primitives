@@ -13,6 +13,13 @@ test("guardRecord", () => {
   } 
 });
 
+test("Function shouldn't be a Record", () => {
+  const obj = (x:number) => {x};
+  if(guardRecord(obj)){
+    throw Error("Unexpected");
+  } 
+});
+
 test("guardRecord<IFoo>", () => {
   const obj = { x: 'A', y:1};
   if(guardRecord<IFoo>(obj)){
